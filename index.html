@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restroom Ops Alerts & Dispatch</title>
+    <style>
+      :root { --max: 980px; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color:#111; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px; }
+      .hero { padding: 34px 0 10px; }
+      h1 { font-size: 40px; line-height: 1.08; margin: 0 0 10px; }
+      p { font-size: 18px; line-height: 1.45; margin: 0 0 14px; color:#333; }
+      .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 22px; align-items: start; }
+      .card { border: 1px solid #e6e6e6; border-radius: 14px; padding: 16px; background: #fff; }
+      ul { margin: 10px 0 0 18px; color:#222; }
+      li { margin: 8px 0; }
+      .btnrow { display:flex; gap:10px; flex-wrap: wrap; margin-top: 14px; }
+      .btn { display:inline-block; padding: 12px 14px; border-radius: 12px; text-decoration:none; font-weight: 650; border:1px solid #111; }
+      .btn.primary { background:#111; color:#fff; }
+      .btn.secondary { background:#fff; color:#111; }
+      .fine { font-size: 13px; color:#666; margin-top: 10px; }
+      .section { padding: 18px 0; }
+      .kicker { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color:#555; margin-bottom: 8px; }
+      label { display:block; font-size: 14px; margin: 10px 0 6px; color:#222; }
+      input, select, textarea { width:100%; padding: 11px 12px; border-radius: 10px; border:1px solid #d8d8d8; font-size: 15px; }
+      textarea { min-height: 86px; }
+      button { width:100%; margin-top: 12px; padding: 12px 14px; border-radius: 12px; border: 1px solid #111; background:#111; color:#fff; font-weight: 700; font-size: 16px; cursor:pointer; }
+      .footer { padding: 24px 0 40px; color:#777; font-size: 13px; }
+      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } h1{ font-size: 34px; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <div class="grid">
+          <div>
+            <h1>Stop surprise outages in your restroom trailers.</h1>
+            <p>
+              Simple alerts + service workflows for <b>generator issues, low water, and maintenance</b>—built for
+              restroom trailer and porta potty operators.
+            </p>
+            <ul>
+              <li><b>Know before the customer does:</b> low water / generator trouble alerts</li>
+              <li><b>Dispatch faster:</b> auto-create service tickets and route techs</li>
+              <li><b>Prove it happened:</b> maintenance logs + issue history by unit</li>
+            </ul>
+
+            <div class="btnrow">
+              <a class="btn primary" href="#signup">Get early access</a>
+              <a class="btn secondary" href="#signup">Talk to us (10 min)</a>
+            </div>
+            <div class="fine">Pilot spots open for Tri-State operators • No hardware required to start</div>
+          </div>
+
+          <div class="card" id="signup">
+            <div class="kicker">Join the pilot</div>
+            <form
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+            >
+              <label>Work email</label>
+              <input name="email" type="email" required placeholder="you@company.com" />
+
+              <label>What do you operate?</label>
+              <select name="fleet_type" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Porta potties</option>
+                <option>Restroom trailers</option>
+                <option>Both</option>
+              </select>
+
+              <label>How many units?</label>
+              <select name="units" required>
+                <option value="" selected disabled>Select one</option>
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>200+</option>
+              </select>
+
+              <label>Biggest headache (optional)</label>
+              <textarea name="pain" placeholder="Low water, generator issues, routing, maintenance tracking…"></textarea>
+
+              <!-- Tracking fields (optional) -->
+              <input type="hidden" name="utm_source" id="utm_source" />
+              <input type="hidden" name="utm_campaign" id="utm_campaign" />
+              <input type="hidden" name="utm_medium" id="utm_medium" />
+
+              <button type="submit">Request access</button>
+              <div class="fine">We’ll reply within 1–2 business days. No spam.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="kicker">How it works</div>
+        <div class="grid">
+          <div class="card">
+            <b>1) Add your units</b>
+            <div class="fine">Trailers, generators, pumps—one simple registry.</div>
+          </div>
+          <div class="card">
+            <b>2) Track checks + issues</b>
+            <div class="fine">Mobile-friendly checklists and issue logs for techs.</div>
+          </div>
+          <div class="card">
+            <b>3) Get alerts + dispatch</b>
+            <div class="fine">Text/email alerts and service tickets when something’s off.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="kicker">FAQ</div>
+        <div class="card">
+          <p><b>Do I need sensors?</b> No—start with checklists + logs, add sensors later.</p>
+          <p><b>What does it cost?</b> Discounted pilot pricing; depends on # of units.</p>
+          <p><b>Will this replace dispatch software?</b> Not initially—starts as an ops layer.</p>
+        </div>
+      </div>
+
+      <div class="footer">© Your Company • Privacy-friendly • Contact: you@company.com</div>
+    </div>
+
+    <script>
+      // UTM capture
+      const params = new URLSearchParams(window.location.search);
+      ["utm_source","utm_campaign","utm_medium"].forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.value = params.get(k) || "";
+      });
+    </script>
+  </body>
+</html>
